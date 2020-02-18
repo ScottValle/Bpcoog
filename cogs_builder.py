@@ -305,7 +305,7 @@ def voorbeeld():
     """
     os.system("rm Twogs cogs.txt")
     os.system("touch Twogs cogs.txt")
-    orgslijst = [y[:-1] for y in openfile("orglijst") if "\n" in y]
+    orgslijst = [y[:-1] for y in openfile("orglijst.txt") if "\n" in y]
     for x in range(len(orgslijst)):
         org1 = orgslijst[x]
         for y in range(len(orgslijst)):
