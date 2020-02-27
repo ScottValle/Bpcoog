@@ -72,7 +72,7 @@ def schrijfnaartwog(snt_naam1, snc_naam2):
         * snt_naam1     organisme naam van het eerste deel
         * snt_naam2     organisme naam van het tweede deel
     """
-    snt_twogfile = open("Twogs", "a")
+    snt_twogfile = open("Twogs.txt", "a")
     snt_lijst = []
     snt_lijst.extend(blastresults(snt_naam1, snc_naam2, 0, 1))
     snt_lijst.extend(blastresults(snc_naam2, snt_naam1, 1, 0))
@@ -104,7 +104,7 @@ def newtwogfile(ntf_twogs):
     De functie gebruikt de volgende parameters :
        * ntf_twogs   lijst van twogs
     """
-    outfile = open("Twogs", "w")
+    outfile = open("Twogs.txt", "w")
     for x in ntf_twogs:
         outfile.write("%s\n" % x)
     outfile.close()
@@ -276,7 +276,7 @@ def openneededfiles(onf_org):
         * twoglijst
         * coglijst"""
     protlijst = [y[1:-1] for y in openfile("%s.fa" % onf_org) if ">" in y]
-    twoglijst = [y[:-1] for y in openfile("Twogs")]
+    twoglijst = [y[:-1] for y in openfile("Twogs.txt")]
     coglijst = [y[:-1] for y in openfile("cogs.txt")]
     return protlijst, twoglijst, coglijst
 
@@ -303,8 +303,8 @@ def voorbeeld():
     Let op: bestaande files zoals de twogs en de cogs.txt
     zullen verwijderd worden!
     """
-    os.system("rm Twogs cogs.txt")
-    os.system("touch Twogs cogs.txt")
+    os.system("rm Twogs.txt cogs.txt")
+    os.system("touch Twogs.txt cogs.txt")
     orgslijst = [y[:-1] for y in openfile("orglijst.txt") if "\n" in y]
     for x in range(len(orgslijst)):
         org1 = orgslijst[x]
